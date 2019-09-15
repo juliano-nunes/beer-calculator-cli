@@ -2,19 +2,14 @@
   <div id="app">
     <div class="container">
       <h1>Máquina Cervejeira</h1>
-      <Home msg="Welcome to Your Vue.js App"/>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
-
 export default {
-  name: 'app',
-  components: {
-    Home
-  }
+  name: 'app'
 }
 </script>
 
