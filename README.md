@@ -1,29 +1,15 @@
-# beer-calculator-cli
+# Projeto Beer Calculador
+Aplicação Vue que calcula a melhor cerveja para tomar de acordo com a temperatura informada
 
-## Project setup
-```
-npm install
-```
+### Pré-Requisitos
 
-### Compiles and hot-reloads for development
+**Dependências:** 
 ```
-npm run serve
+- Docker
 ```
+## Preparando ambiente com Docker
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Acesse o diretório em que o repositório foi clonado através do terminal e
+execute os comandos:
+ - `docker build -t basement/beer-calculator-cli .` para compilar imagens, criar containers etc.
+ - `docker run -it -p 8080:8080 --rm --name beer-calculator-cli basement/beer-calculator-cli` para instalar o projeto e inicializar o servidor
