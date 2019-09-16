@@ -5,7 +5,7 @@
                 <div class="card-content">
                     <span class="card-title">Qual temperatura você deseja sua cerveja?</span>
                     <div class="input-field col s6">
-                        <input id="temperature" type="number" step="0.01" v-model="temperature" class="validate">
+                        <input id="temperature" type="number" step="0.01" v-model="temperature" required="true" class="validate">
                     </div>
                 </div>
                 <div class="card-action">
@@ -32,16 +32,30 @@
         data() {
             return {
                 temperature: 0,
-                result: null
+                result: "",
+                error: null
             }
         },
         methods: {
             calculate() {
-                this.$repository.getBestBeer(this.temperature).then(
-                    (success) => {
-                        this.result = success.data.beer_style;
-                    }
-                )
+                if (!this.formIsValid()) {
+                    return
+                }
+
+                this.$repository.getBestBeer(this.temperature)
+                    .then(
+                        (success) => {
+                            this.result = success.data.beer_style;
+                        }
+                    )
+                    .catch(
+                        (err) => {
+                            alert("Ocorreu um erro ao processar sua solicitação.")
+                        }
+                    )
+            },
+            formIsValid() {
+                return this.$el.querySelector('form input.invalid') === null
             }
         }
     }
