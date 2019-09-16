@@ -49,7 +49,7 @@
                         }
                     )
                     .catch(
-                        (err) => {
+                        () => {
                             alert("Ocorreu um erro ao processar sua solicitação.")
                         }
                     )
